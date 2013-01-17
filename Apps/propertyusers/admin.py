@@ -21,7 +21,7 @@ class CompanyAdmin(admin.ModelAdmin):
 admin.site.register(company_account,CompanyAdmin)
 
 class UserAdmin(admin.ModelAdmin):
-    exclude = ['created_by']
+    exclude = ['created_by','is_superuser']
 
     def queryset(self, request):
         qs = super(UserAdmin, self).queryset(request)
@@ -43,8 +43,3 @@ admin.site.register(user,UserAdmin)
 class CompanyPropertiesAdmin(admin.ModelAdmin):
     pass
 admin.site.register(company_properties,CompanyPropertiesAdmin)
-
-#class PropertyOwnersAdmin(admin.ModelAdmin):
-##    inlines = [CompanyUsersInline]
-#    pass
-#admin.site.register(property_owners,PropertyOwnersAdmin)

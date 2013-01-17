@@ -10,46 +10,14 @@ from propertyusers.models import user
 
 class AmenitiesInline(admin.StackedInline):
     model = amenities
-
-class ParkingInline(admin.StackedInline):
-    model = parking
-
-class ContactsInline(admin.StackedInline):
-    model = contacts
-
-
-class ParkingAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(parking,ParkingAdmin)
-
-
-
-#class CompanyUsersInlineForm(ModelForm):
-#
-##    def __init__(self, *args, **kwargs):
-##        super(CompanyUsersInlineForm, self).__init__(*args, **kwargs)
-##        qs = request.user.foreignkeytable__set.all()
-##        self.fields["category"].queryset = qs
-#
-##    def __init__(self, request, *args, **kwargs):
-##        super(CompanyUsersInlineForm, self).__init__(*args, **kwargs)
-##        print 'I love propramming'
-##        print request
-##        qs = request.user.foreignkeytable__set.all()
-##        self.fields["category"].queryset = qs
-#
-#    def __init__(self,request=None, *args, **kwargs):
-#        print 'I love propramming'
-#        print kwargs.pop('request', None)
-#        super(CompanyUsersInlineForm, self).__init__(*args, **kwargs)
-#        self.fields['user'].queryset = user.objects.filter(username='yaseen')
+    extra = 1
+    verbose_name = 'Amenity'
+    verbose_name_plural = 'Amenities'
 
 
 class CompanyUsersInline(admin.StackedInline):
     model = property_owners
     extra = 1
-    request = None
-#    form = CompanyUsersInlineForm
     verbose_name = 'Property User'
     verbose_name_plural = 'Property Users'
 
@@ -61,50 +29,26 @@ class CompanyUsersInline(admin.StackedInline):
 #            self.fields['user'].queryset = user.objects.filter(created_by = request.user)
         else:
             pass
-
         return super(CompanyUsersInline, self).formfield_for_foreignkey(db_field, request, **kwargs)
-
-
-
-class AmenitiesAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(amenities,AmenitiesAdmin)
-
-class ProjectsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'title','city','state')
-    fieldsets = [
-        (None,{'fields':('name','title')}),
-        ('Project Information',{'fields':(('min_bathrooms','max_bathrooms'),('min_price','max_price'),'description'),'classes': ['collapse']}),
-        ('Amenities',{'fields':('amenities',),'classes': ['collapse']}),
-        ('Contact Person',{'fields':('contacts',)}),
-        ('Address',{'fields':('address1','address2',('city','state'),'zip'),'classes': ['collapse']}),
-        ('Date Information',{'fields':('started_on',)})
-    ]
-
-admin.site.register(projects,ProjectsAdmin)
 
 
 class PropertyAdmin(admin.ModelAdmin):
     search_fields = ['name','title']
-    list_display = ('name','title','credit_score')
-    inlines = [CompanyUsersInline]
+    list_display = ('name','title')
+    inlines = [CompanyUsersInline,AmenitiesInline]
+
 #    prepopulated_fields = {"title": ("name",)}
 
 #    def company_users(self,obj):
 #        user =  self
 
     fieldsets = [
-            (None,{'fields':('name',('room_no','bath_no'),'title')}),
+            (None,{'fields':('name','title')}),
 #            ('Owner',{'fields':('belongs_to','who_can_edit')}),
-            ('Property Details',{'fields':('locality',
-                'on_floor','balconies','direction_facing')}),
-            ('Additional Details',{'fields':('constructed_on','address','description')}),
-            ('Flooring',{'fields':('built_up_area','carpet_area','flooring')}),
-            ('Parking',{'fields':('parking',)}),
-            ('Project',{'fields':('project_name',)}),
-            ('Sale/Lease',{'fields':('sale_type','available_from','owner_ship')}),
-            ('Property Value',{'fields':('value','negotiable')}),
-            ('Scores',{'fields':('credit_score',)})
+            ('Property Details',{'fields':(('min_bathrooms','max_bathrooms'),('min_rooms','max_rooms'),'started_on')}),
+            ('Property Value',{'fields':(('min_price','max_price'))}),
+            ('Address',{'fields':('address1','address2',('city','state','zip'))}),
+            ('Additional Details',{'fields':('description','website','facebook','twitter','phone_office')}),
         ]
 
 
@@ -160,12 +104,5 @@ class PropertyAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(property,PropertyAdmin)
+admin.site.register(properties,PropertyAdmin)
 
-class ContactsAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(contacts,ContactsAdmin)
-
-class LocalitiesAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(localities,LocalitiesAdmin)

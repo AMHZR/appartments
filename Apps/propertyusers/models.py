@@ -1,6 +1,6 @@
 __author__ = 'aamirhussain'
 from django.db import models
-from property.models import property
+from property.models import properties
 
 from django.contrib.admin.models import User
 
@@ -38,13 +38,13 @@ class company_users(models.Model):
 
 class company_properties(models.Model):
     company  = models.ForeignKey(company_account)
-    property = models.ForeignKey(property)
+    property = models.ForeignKey(properties)
 
     def __unicode__(self):
         return self.property.title
 
 class property_owners(models.Model):
-    property = models.ForeignKey(property)
+    property = models.ForeignKey(properties)
     user = models.ForeignKey(user)
     def __unicode__(self):
         return self.property.title
