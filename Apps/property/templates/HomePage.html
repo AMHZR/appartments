@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{ MEDIA_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+            background: rgb(112,175,196); /* Old browsers */
+            /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzcwYWZjNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjglIiBzdG9wLWNvbG9yPSIjNzBhZmM0IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTclIiBzdG9wLWNvbG9yPSIjOWViOWMxIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMzMlIiBzdG9wLWNvbG9yPSIjODFiMWMxIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iODMlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iOTglIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+            background: -moz-linear-gradient(top,  rgba(112,175,196,1) 0%, rgba(112,175,196,1) 8%, rgba(158,185,193,1) 17%, rgba(129,177,193,1) 33%, rgba(255,255,255,1) 83%, rgba(255,255,255,1) 98%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(112,175,196,1)), color-stop(8%,rgba(112,175,196,1)), color-stop(17%,rgba(158,185,193,1)), color-stop(33%,rgba(129,177,193,1)), color-stop(83%,rgba(255,255,255,1)), color-stop(98%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(112,175,196,1) 0%,rgba(112,175,196,1) 8%,rgba(158,185,193,1) 17%,rgba(129,177,193,1) 33%,rgba(255,255,255,1) 83%,rgba(255,255,255,1) 98%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(112,175,196,1) 0%,rgba(112,175,196,1) 8%,rgba(158,185,193,1) 17%,rgba(129,177,193,1) 33%,rgba(255,255,255,1) 83%,rgba(255,255,255,1) 98%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(112,175,196,1) 0%,rgba(112,175,196,1) 8%,rgba(158,185,193,1) 17%,rgba(129,177,193,1) 33%,rgba(255,255,255,1) 83%,rgba(255,255,255,1) 98%); /* IE10+ */
+            background: linear-gradient(to bottom,  rgba(112,175,196,1) 0%,rgba(112,175,196,1) 8%,rgba(158,185,193,1) 17%,rgba(129,177,193,1) 33%,rgba(255,255,255,1) 83%,rgba(255,255,255,1) 98%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70afc4', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
+
+
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        .hero-unit{
+            background:#FAFBEE;
+        }
+
+    </style>
+    <link href="{{ MEDIA_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href= {{ MEDIA_URL }}bootstrap//ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ MEDIA_URL }}bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ MEDIA_URL }}bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{ MEDIA_URL }}bootstrap/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="{{ MEDIA_URL }}bootstrap/ico/favicon.png">
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">Project name</a>
+            <div class="nav-collapse collapse">
+                <p class="navbar-text pull-right">
+                    Logged in as <a href="#" class="navbar-link">Username</a>
+                </p>
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row-fluid">
+
+        <div class="span9">
+            <div class="hero-unit">
+                <h1>Apartment Rating's</h1>
+                <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                <p> <input  type="text" placeholder="City, State, Zip, Property or Campus" class="search-query input-xxlarge"> <a class="btn btn-primary">Search &raquo;</a></p>
+            </div>
+
+            <div class="hero-unit">
+                    Lorem ipsum dolor sit amet, pellentesque phasellus hac risus tempor nam donec, hymenaeos auctor. Aliquet tempor eum eu, eget eget, pharetra egestas nascetur, urna doloremque at, fusce eros. Ut porta orci eu id. Eget laoreet, nunc erat tincidunt quisque sapien suspendisse purus, et mauris donec odio velit nunc, enim a vestibulum mi fusce. Velit dictum ultricies quis libero scelerisque. Eget nisl dolor elit. Vitae proin praesent pellentesque metus sollicitudin. Luctus sed, pellentesque sed velit mattis enim enim, magna cum platea at turpis. Dui ac purus pharetra urna, proin rhoncus vitae enim, quis libero. Nullam quis facilisis, arcu leo, tristique lorem mi blandit consequat condimentum.
+            </div>
+
+            <div class="hero-unit">
+                <h3 class="text-error">Turn Rating icon key </h3>
+                <div class="row-fluid">
+                    <div class="span4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div><!--/span-->
+                    <div class="span4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div><!--/span-->
+                    <div class="span4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div><!--/span-->
+                </div><!--/row-->
+            </div>
+        </div><!--/span-->
+
+        <div class="span3">
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+                    <img data-src="holder.js/300x200" alt="300x200" style="width: 300px; height: 200px;" src="data:image/png;base64,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">
+                    <li class="nav-header">Sidebar</li>
+                    <li class="active"><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="nav-header">Sidebar</li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="nav-header">Sidebar</li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                </ul>
+            </div><!--/.well -->
+        </div><!--/span-->
+    </div><!--/row-->
+
+
+    <hr>
+
+    <footer>
+        <p>&copy; Company 2012</p>
+    </footer>
+
+</div><!--/.fluid-container-->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ MEDIA_URL }}bootstrap/js/jquery.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-transition.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-alert.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-modal.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-dropdown.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-scrollspy.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-tab.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-tooltip.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-popover.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-button.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-collapse.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-carousel.js"></script>
+<script src="{{ MEDIA_URL }}bootstrap/js/bootstrap-typeahead.js"></script>
+
+</body>
+</html>
