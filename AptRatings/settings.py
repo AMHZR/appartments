@@ -186,8 +186,8 @@ AJAX_LOOKUP_CHANNELS = {
     'person'  : {'model':'property.projects', 'search_field':('name','title')}
 }
 # magically include jqueryUI/js/css
-AJAX_SELECT_BOOTSTRAP = True
-AJAX_SELECT_INLINES = 'inline'
+#AJAX_SELECT_BOOTSTRAP = True
+#AJAX_SELECT_INLINES = 'inline'
 
 #************************************************************
 
